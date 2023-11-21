@@ -9,12 +9,12 @@ const questions = [
         ]
     },
     {
-        question: "Which is the largest animal in the world?",
-        answers: [
-            { text: "Blue Whale", correct: true },
-            { text: "Elephant", correct: false },
-            { text: "Giraffe", correct: false },
-            { text: "Orca Whale", correct: false }
+        "question": "In which year did the Titanic sink?",
+        "answers": [
+            { "text": "1912", "correct": true },
+            { "text": "1905", "correct": false },
+            { "text": "1920", "correct": false },
+            { "text": "1935", "correct": false }
         ]
     },
     {
@@ -81,6 +81,7 @@ function selectAnswer(e) {
     const isCorrect = selectedBtn.dataset.correct === "true";
     if (isCorrect) {
         selectedBtn.classList.add("correct");
+        score++;
     } else {
         selectedBtn.classList.add("incorrect");
     }
@@ -92,5 +93,30 @@ function selectAnswer(e) {
     });
     nextButton.style.display = "block";
 }
+
+function showScore() {
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}`;
+    nextButton.innerHTML = "Play Again";
+    nextButton.style.display = "block";
+}
+
+function handleNextButton() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        resetState();
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
+
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
+        handleNextButton();
+    }else {
+        startQuiz();
+    }
+});
 
 startQuiz();
