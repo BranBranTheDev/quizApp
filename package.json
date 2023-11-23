@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "## Description This is a simple quiz application built with JavaScript. The application presents users with a series of questions and options to choose from.",
   "main": "script.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -12,6 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
-    "openai": "^4.19.1"
+    "openai": "^4.20.0"
   }
 }
