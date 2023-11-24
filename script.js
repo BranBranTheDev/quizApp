@@ -1,3 +1,16 @@
+const promptModule = require('./prompt');
+
+async function main() {
+  const result = await promptModule.getPrompt();
+  console.log("Received result:", result);
+}
+
+main();
+
+let questions = [];
+
+
+/*
 const questions = [
     {
         question: "Which is the largest animal in the world?",
@@ -36,6 +49,7 @@ const questions = [
         ]
     }
 ];
+*/ 
 
 const questionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer-buttons");
